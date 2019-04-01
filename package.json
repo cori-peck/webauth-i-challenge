@@ -1,0 +1,18 @@
+{
+  "name": "webauth-i-challenge",
+  "version": "1.0.0",
+  "description": "intro to authentication",
+  "main": "index.js",
+  "repository": "https://github.com/cori-peck/webauth-i-challenge.git",
+  "author": "cori-peck <cori.peck@ymail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "knex": "^0.16.3",
+    "sqlite": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
