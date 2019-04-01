@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "intro to authentication",
   "main": "index.js",
+  "scripts": {
+    "server": "nodemon"
+  },
   "repository": "https://github.com/cori-peck/webauth-i-challenge.git",
   "author": "cori-peck <cori.peck@ymail.com>",
   "license": "MIT",
