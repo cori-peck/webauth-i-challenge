@@ -4,12 +4,15 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const db = require('./data/dbConfig');
 const Users = require('./users/users');
+const session = require('express-session');
+const sessionConfig = require('./auth/session-config.js');
 
 const server = express();
 
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
+server.use(session(sessionConfig));
 
 server.get('/', (req, res) => {
     res.status(200).send("Intro to Authentication - Challenge I")
@@ -42,6 +45,7 @@ server.post('/api/login', (req, res) => {
     .first()
     .then(user => {
         if (user && bcrypt.compareSync(password, user.password)) {
+            req.session.user = user;
             res.status(200).json({ message: `Welcome ${user.username}` })
         } else {
             res.status(401).json({ message: 'Invalid Credentials' })
