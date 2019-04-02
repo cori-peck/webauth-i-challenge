@@ -57,6 +57,21 @@ server.post('/api/login', (req, res) => {
 })
 
 
+server.get('/api/logout', (req, res) => {
+    if(req.session) {
+        req.session.destroy(err => {
+            if(err) {
+                res.status(500).json({ message: 'Error logging out.'})
+            } else {
+                res.status(200).json({ message: "See you next time!" })
+            }
+        })
+    } else {
+        res.status(200).json({ message: "See you next time!" })
+    }
+})
+
+
 server.get('/api/users', restricted, (req, res) => {
     Users.find()
     .then(users => {
